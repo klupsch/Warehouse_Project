@@ -3,6 +3,9 @@ package com.warehouse_project.warehouse.model.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class ProductDictionary {
@@ -17,17 +20,8 @@ public class ProductDictionary {
     private String description;
     @Column(length = 10)
     private String unit;
-
-    public ProductDictionary() {
-    }
-
-    public ProductDictionary(Long ean, String code, String name, String description, String unit) {
-        this.ean = ean;
-        this.code = code;
-        this.name = name;
-        this.description = description;
-        this.unit = unit;
-    }
+    @OneToMany
+    private List<ProductAcceptance> productAcceptanceList = new ArrayList<>();
 
 
     public Long getEan() {

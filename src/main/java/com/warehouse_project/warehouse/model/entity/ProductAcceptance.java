@@ -2,7 +2,9 @@ package com.warehouse_project.warehouse.model.entity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class ProductAcceptance {
@@ -12,23 +14,16 @@ public class ProductAcceptance {
     private Long id;
     @Column(length = 35)
     private String invoice;
+    @ManyToOne
     private ProductDictionary productDictionary;
     private Date date;
     @Column(scale = 13, precision = 4)
     private BigDecimal count;
     @Column(scale = 18, precision = 2)
     private BigDecimal price;
+    @OneToMany
+    private List<ProductPool> productPoolList = new ArrayList<>();
 
-    public ProductAcceptance() {
-    }
-
-    public ProductAcceptance(String invoice, ProductDictionary productDictionary, Date date, BigDecimal count, BigDecimal price) {
-        this.invoice = invoice;
-        this.productDictionary = productDictionary;
-        this.date = date;
-        this.count = count;
-        this.price = price;
-    }
 
     public Long getId() {
         return id;

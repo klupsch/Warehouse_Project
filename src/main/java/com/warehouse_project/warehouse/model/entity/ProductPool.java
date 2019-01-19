@@ -12,21 +12,11 @@ public class ProductPool {
     private Long id;
     @Column(length = 35)
     private String invoice;
+    @ManyToOne
     private ProductAcceptance productAcceptance;
     private Date date;
     @Column(scale = 13, precision = 4)
     private BigDecimal count;
-
-
-    public ProductPool() {
-    }
-
-    public ProductPool(String invoice, ProductAcceptance productAcceptance, Date date, BigDecimal count) {
-        this.invoice = invoice;
-        this.productAcceptance = productAcceptance;
-        this.date = date;
-        this.count = count;
-    }
 
 
     public Long getId() {
