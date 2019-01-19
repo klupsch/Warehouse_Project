@@ -25,7 +25,36 @@ class ProductPoll {
    - count : BigDecimal 9,4
 }
 
-ProductAcceptance -|> ProductDictionary
-ProductPoll -|> ProductAcceptance
+ProductAcceptance -> ProductDictionary
+ProductPoll -> ProductAcceptance
+
+
+class RepositoryProductDictionary {
+   ???
+}
+class RepositoryProductAcceptance {
+   ???
+}
+class RepositoryProductPoll {
+   ???
+}
+
+RepositoryProductDictionary --> ProductDictionary
+RepositoryProductAcceptance --> ProductAcceptance
+RepositoryProductPoll --> ProductPoll
+
+class WarehouseService {
+   ???
+}
+
+WarehouseService --> RepositoryProductDictionary
+WarehouseService --> RepositoryProductAcceptance
+WarehouseService --> RepositoryProductPoll
+
+class WarehouseController {
+   ???
+}
+
+WarehouseController --> WarehouseService
 
 @enduml
