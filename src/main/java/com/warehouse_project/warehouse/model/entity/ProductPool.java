@@ -18,6 +18,8 @@ public class ProductPool {
     @Column(scale = 13, precision = 4)
     private BigDecimal count;
 
+    public ProductPool(){}
+
 
     public Long getId() {
         return id;
@@ -58,4 +60,6 @@ public class ProductPool {
     public void setCount(BigDecimal count) {
         this.count = count;
     }
+
+
 }

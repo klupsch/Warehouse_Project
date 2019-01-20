@@ -72,4 +72,12 @@ public class ProductAcceptance {
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
+
+    public List<ProductPool> getProductPoolList() {
+        return productPoolList;
+    }
+
+    public void setProductPoolList(List<ProductPool> productPoolList) {
+        this.productPoolList = productPoolList;
+    }
 }

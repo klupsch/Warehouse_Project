@@ -63,4 +63,13 @@ public class ProductDictionary {
     public void setUnit(String unit) {
         this.unit = unit;
     }
+
+    public List<ProductAcceptance> getProductAcceptanceList() {
+        return productAcceptanceList;
+    }
+
+    public void setProductAcceptanceList(List<ProductAcceptance> productAcceptanceList) {
+        this.productAcceptanceList = productAcceptanceList;
+    }
 }
+
