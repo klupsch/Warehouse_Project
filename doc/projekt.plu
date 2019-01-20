@@ -1,60 +1,79 @@
 @startuml
 
-class ProductDictionary {
-   - ean : long : long
-   - code : String : 15
-   - name : String : 50
-   - description : String : Text
-   - unit : String : 10
+namespace warehouse {
+
+    namespace model {
+
+        namespace entity {
+
+            class .ProductDictionary {
+                - ean : long : long
+                - code : String : 15
+                - name : String : 50
+                - description : String : Text
+                - unit : String : 10
+            }
+
+            class .ProductAcceptance {
+                - id : long
+                - invoice : String : 35
+                - productDictionary : ProductDictionary
+                - date : Date
+                - count : BigDecimal : 9,4
+                - price : BigDecimal : 16,2
+            }
+
+            class .ProductPoll {
+                - id : long
+                - invoice : String : 35
+                - productAcceptance : ProductAcceptance
+                - date : Date
+                - count : BigDecimal 9,4
+            }
+
+            .ProductAcceptance "*" *-> "1" .ProductDictionary
+            .ProductPoll "*" *-> "1" .ProductAcceptance
+        }
+
+        namespace repository {
+
+            class .RepositoryProductDictionary {
+                ???
+            }
+
+            class .RepositoryProductAcceptance {
+                ???
+            }
+
+            class .RepositoryProductPoll {
+                ???
+            }
+        }
+    }
+
+    .RepositoryProductDictionary --> .ProductDictionary
+    .RepositoryProductAcceptance --> .ProductAcceptance
+    .RepositoryProductPoll --> .ProductPoll
+
+    namespace services {
+
+        class .WarehouseService {
+            ???
+        }
+    }
+
+    .WarehouseService --> .RepositoryProductDictionary
+    .WarehouseService --> .RepositoryProductAcceptance
+    .WarehouseService --> .RepositoryProductPoll
+
+    namespace controllers {
+
+        class .WarehouseController {
+            ???
+        }
+    }
+
+    .WarehouseController --> .WarehouseService
 }
-
-class ProductAcceptance {
-   - id : long
-   - invoice : String : 35
-   - productDictionary : ProductDictionary
-   - date : Date
-   - count : BigDecimal : 9,4
-   - price : BigDecimal : 16,2
-}
-
-class ProductPoll {
-   - id : long
-   - invoice : String : 35
-   - productAcceptance : ProductAcceptance
-   - date : Date
-   - count : BigDecimal 9,4
-}
-
-ProductAcceptance -> ProductDictionary
-ProductPoll -> ProductAcceptance
-
-
-class RepositoryProductDictionary {
-   ???
-}
-class RepositoryProductAcceptance {
-   ???
-}
-class RepositoryProductPoll {
-   ???
-}
-
-RepositoryProductDictionary --> ProductDictionary
-RepositoryProductAcceptance --> ProductAcceptance
-RepositoryProductPoll --> ProductPoll
-
-class WarehouseService {
-   ???
-}
-
-WarehouseService --> RepositoryProductDictionary
-WarehouseService --> RepositoryProductAcceptance
-WarehouseService --> RepositoryProductPoll
-
-class WarehouseController {
-   ???
-}
-
-WarehouseController --> WarehouseService
 
 @enduml
