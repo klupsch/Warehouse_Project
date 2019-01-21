@@ -21,7 +21,7 @@ public class ProductDictionary {
     @Column(length = 10)
     private String unit;
     @OneToMany
-    private List<ProductAcceptance> productAcceptanceList = new ArrayList<>();
+    private List<ProductAcceptance> productAcceptance = new ArrayList<>();
 
 
     public Long getEan() {
@@ -64,12 +64,12 @@ public class ProductDictionary {
         this.unit = unit;
     }
 
-    public List<ProductAcceptance> getProductAcceptanceList() {
-        return productAcceptanceList;
+    public List<ProductAcceptance> getProductAcceptance() {
+        return productAcceptance;
     }
 
-    public void setProductAcceptanceList(List<ProductAcceptance> productAcceptanceList) {
-        this.productAcceptanceList = productAcceptanceList;
+    public void setProductAcceptance(List<ProductAcceptance> productAcceptance) {
+        this.productAcceptance = productAcceptance;
     }
 }
 
