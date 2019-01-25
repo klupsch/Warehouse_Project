@@ -72,4 +72,3 @@ public class ProductDictionary {
         this.productAcceptance = productAcceptance;
     }
 }
-

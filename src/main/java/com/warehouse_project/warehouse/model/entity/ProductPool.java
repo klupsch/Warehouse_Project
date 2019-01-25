@@ -20,7 +20,6 @@ public class ProductPool {
 
     public ProductPool(){}
 
-
     public Long getId() {
         return id;
     }
@@ -60,6 +59,4 @@ public class ProductPool {
     public void setCount(BigDecimal count) {
         this.count = count;
     }
-
-
 }
