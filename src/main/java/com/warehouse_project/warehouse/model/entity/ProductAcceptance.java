@@ -17,12 +17,12 @@ public class ProductAcceptance {
     @ManyToOne
     private ProductDictionary productDictionary;
     private Date date;
-    @Column(scale = 13, precision = 4)
+    @Column(scale = 4)
     private BigDecimal count;
-    @Column(scale = 18, precision = 2)
+    @Column(scale = 2)
     private BigDecimal price;
     @OneToMany
-    private List<ProductPool> productPoolList = new ArrayList<>();
+    private List<ProductPool> productPool = new ArrayList<>();
 
 
     public Long getId() {
@@ -71,5 +71,13 @@ public class ProductAcceptance {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public List<ProductPool> getProductPool() {
+        return productPool;
+    }
+
+    public void setProductPool(List<ProductPool> productPool) {
+        this.productPool = productPool;
     }
 }

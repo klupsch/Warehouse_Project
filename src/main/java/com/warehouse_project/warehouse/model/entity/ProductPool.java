@@ -15,9 +15,10 @@ public class ProductPool {
     @ManyToOne
     private ProductAcceptance productAcceptance;
     private Date date;
-    @Column(scale = 13, precision = 4)
+    @Column(scale = 4)
     private BigDecimal count;
 
+    public ProductPool(){}
 
     public Long getId() {
         return id;
