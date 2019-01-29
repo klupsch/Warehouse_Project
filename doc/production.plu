@@ -1,0 +1,71 @@
+@startuml
+
+namespace production {
+
+    namespace model {
+
+        namespace entity {
+
+        class .ProductOrder {
+            - id : long
+            - order : String : 35
+            - productPoll : productPoll
+            - details : String : Text
+            - date : Date
+            - count : BigDecimal : 9,4
+
+        }
+
+        class .ProductExpenditures {
+            - id : long
+            - productOrder : productOrder
+            - details : String : Text
+            - date : Date
+            - count : BigDecimal : 9,4
+        }
+
+        .ProductExpenditures *-> .ProductOrder
+
+
+    }
+
+    namespace repository {
+
+        class .RepositoryProductOrder {
+            ???
+        }
+
+        class .RepositoryProductExpenditures {
+            ???
+        }
+
+        .RepositoryProductOrder --> .ProductOrder
+        .RepositoryProductExpenditures --> .ProductExpenditures
+
+    }
+    }
+
+    namespace services {
+
+        class .ProductionService {
+            ???
+        }
+
+        .ProductionService --> .RepositoryProductOrder
+        .ProductionService --> .RepositoryProductExpenditures
+
+    }
+
+    namespace controllers {
+
+        class .ProductionController {
+            ???
+        }
+
+        .ProductionController --> .ProductionService
+    }
+
+}
+
+
+@enduml
